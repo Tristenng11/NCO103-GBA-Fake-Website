@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CDC Voucher News</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="logo">SG DAILY</div>
+    <nav class="top-nav">
+      <a href="#">Home</a>
+      <a href="#">Singapore</a>
+      <a href="#">Community</a>
+      <a href="#">Money</a>
+      <a href="#">Lifestyle</a>
+    </nav>
+  </header>
+
+  <div class="urgent-banner">
+    <span class="urgent-text">New CDC Vouchers Available — Claim Before Weekend!</span>
+    <span class="urgent-timer" id="countdown"></span>
+  </div>
+
+  <!-- Section bar -->
+  <div class="section-bar">
+    <a href="#">Latest</a>
+    <a href="#">CDC Vouchers</a>
+    <a href="#">Guides</a>
+    <a href="#">Heartland</a>
+  </div>
+
+  <!-- Main layout -->
+  <main class="layout">
+
+    <!-- Main column -->
+    <section class="main-column">
+
+      <!-- Lead story -->
+      <article class="lead-story">
+        <img src="pictures/CDCl.png" alt="CDC vouchers">
+        <h1>New CDC Vouchers Released: Singapore Residents Urged to Claim Early</h1>
+        <p class="meta">Singapore · Updated 2 hours ago</p>
+        <p class="summary">
+          A fresh round of CDC vouchers is now available for all Singaporean households. 
+          Residents can claim their digital vouchers through the Singpass app and use them 
+          at participating hawkers, heartland shops, and supermarkets. Authorities encourage 
+          early claiming to avoid peak-hour congestion on the platform.
+        </p>
+      </article>
+      <a class="claim-btn" href="https://www.singpass.gov.sg" target="_blank">
+        Claim Now with Singpass
+        </a>
+      <!-- Sub stories -->
+      <div class="sub-stories">
+        <article class="sub-story">
+          <h2>Why You Should Claim Your CDC Vouchers Before the Weekend</h2>
+          <p>With increased demand expected, early redemption helps avoid login delays and ensures smoother transactions.</p>
+        </article>
+
+        <article class="sub-story">
+          <h2>Merchants Gear Up for Voucher Surge</h2>
+          <p>Hawkers and supermarkets prepare for higher footfall as residents begin spending their newly released vouchers.</p>
+        </article>
+      </div>
+
+
+      <!-- News grid (CDC Sections) -->
+      <section class="info-grid">
+
+        <a class="info-card" href="details/claim-before-weekend.html">
+          <img class="info-icon" src="pictures/mrtt.jpg" alt="">
+          <h3>Circle Line MRT Breakdown Causes Peak‑Hour Delays; Commuters Face Longer Travel Times</h3>
+          <p>SINGAPORE — Thousands of commuters on the Circle Line (CCL) experienced significant delays on Thursday evening after a service disruption between Bishan and Buona Vista...</p>
+        </a>
+
+        <a class="info-card" href="details/merchants-prepare.html">
+          <img class="info-icon" src="pictures/protest.png" alt="">
+          <h3>Hundreds Gather in Peaceful Public Demonstration at City Centre</h3>
+          <p>A peaceful public demonstration took place this afternoon in the city centre,
+      drawing several hundred participants who gathered to voice concerns...</p>
+        </a>
+
+        <a class="info-card" href="details/how-to-claim.html">
+          <img class="info-icon" src="pictures/holiday.png" alt="">
+          <h3>Public Holiday in 3 Days: Residents Gear Up for Long Weekend</h3>
+          <p>Singapore residents can look forward to a mid-week break, with a public holiday
+      coming up in just three days’ time...</p>
+        </a>
+
+        <!-- <a class="info-card" href="details/where-to-spend.html">
+          <img class="info-icon" src="https://via.placeholder.com/40" alt="">
+          <h3>Where You Can Spend Your Vouchers</h3>
+          <p>From kopitiams to supermarkets, here’s the full list of merchants.</p>
+        </a> -->
+
+        <!-- <a class="info-card" href="details/common-issues.html">
+          <img class="info-icon" src="https://via.placeholder.com/40" alt="">
+          <h3>Common Issues When Claiming — And Fixes</h3>
+          <p>Login errors, expired sessions, and OTP delays explained.</p>
+        </a>
+
+        <a class="info-card" href="details/community-help.html">
+          <img class="info-icon" src="https://via.placeholder.com/40" alt="">
+          <h3>Community Groups Helping Seniors</h3>
+          <p>Grassroots volunteers assisting residents with digital claiming.</p>
+        </a> -->
+
+      </section>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+      <section class="widget">
+        <h2>Trending</h2>
+        <ol>
+          <li>Residents report long queues at popular hawker centres</li>
+          <li>CDC vouchers boost heartland business activity</li>
+          <li>Singpass sees spike in logins after voucher release</li>
+          <li>Merchants share tips for smooth voucher scanning</li>
+        </ol>
+      </section>
+
+      <section class="widget">
+        <h2>Opinion</h2>
+        <p><strong>Commentary:</strong> CDC vouchers strengthen local communities by directing spending back into neighbourhood businesses.</p>
+      </section>
+
+      <section class="widget">
+        <h2>Newsletter</h2>
+        <p>Stay updated on voucher releases and merchant lists.</p>
+        <input type="email" placeholder="Email address">
+        <button>Subscribe</button>
+      </section>
+
+    </aside>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 SG Daily. All rights reserved.</p>
+  </footer>
+<script>
+function startCountdown(hours) {
+  const end = Date.now() + hours * 60 * 60 * 1000;
+
+  function update() {
+    const diff = end - Date.now();
+    if (diff <= 0) return document.getElementById("countdown").textContent = "00:00:00";
+
+    const h = String(Math.floor(diff / 3600000)).padStart(2, "0");
+    const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, "0");
+    const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, "0");
+
+    document.getElementById("countdown").textContent = `${h}:${m}:${s}`;
+    requestAnimationFrame(update);
+  }
+
+  update();
+}
+
+startCountdown(24);
+</script>
+</body>
+</html>
