@@ -151,7 +151,39 @@
         opacity: 0.6;
         font-size: 0.75rem;
     }
+/* Modal Styles */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(26, 43, 60, 0.8); /* Dark navy transparent overlay */
+    backdrop-filter: blur(8px); /* Blurs the background article */
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
 
+.modal-content {
+    background: white;
+    padding: 50px;
+    border-radius: 16px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.4s ease-out;
+}
+
+.success-icon {
+    color: #16A34A; /* The Green Tick color */
+    margin-bottom: 20px;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
     </style>
 </head>
 <body>
@@ -201,7 +233,7 @@
 
                 <div class="fake-form">
                     <h3>Premium Investor Program</h3>
-                    <p class="demo-note"><em>Note: This is a safe UI demo for design purposes.</em></p>
+                    <!-- <p class="demo-note"><em>Note: This is a safe UI demo for design purposes.</em></p> -->
 
                     <div class="form-group">
                         <label for="name">Full Name</label>
@@ -245,6 +277,36 @@
         </div>
     </section>
 
-    <script>lucide.createIcons();</script>
+    <script>
+    //retrieve images and icon
+    lucide.createIcons();
+        // Function to show the popup
+function showSuccess() {
+    const modal = document.getElementById('successModal');
+    modal.style.display = 'flex';
+}
+
+// Function to close the popup
+function closeModal() {
+    const modal = document.getElementById('successModal');
+    modal.style.display = 'none';
+}
+
+// Attach this to your button
+document.querySelector('.btn-submit').addEventListener('click', function(e) {
+    // In a real site, you'd check if the form is valid first
+    showSuccess();
+});
+    </script>
+    <div id="successModal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="success-icon">
+            <i data-lucide="check-circle" size="64"></i>
+        </div>
+        <h2>Application Received</h2>
+        <p>Your enrollment in the Premium Investor Program is being processed. An advisor will contact you within 24 hours.</p>
+        <button class="btn-submit" onclick="closeModal()">Return to Article</button>
+    </div>
+</div>
 </body>
 </html>
